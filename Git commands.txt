@@ -1,0 +1,6 @@
+clone
+fetch
+add
+commit
+push 
+	origin master (to push my repo to master branch)
