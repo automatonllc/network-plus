@@ -43,10 +43,10 @@ IP Classes, Subnetting
 			172.16.0.0 - 172.31.255.255
 			192.168.0.0 - 1912.168.255.255
 
-		CIDR (Classless Inter-Domain Routing)
-			Created around 1993
-			Removed restrictions created by classful subnet masks
-			"Cider" block notation
-				e.g. 192.168.1.1/24
-				indicates how many bits are desdicated to the subnet mask
+	CIDR (Classless Inter-Domain Routing)
+		Created around 1993
+		Removed restrictions created by classful subnet masks
+		"Cider" block notation
+			e.g. 192.168.1.1/24
+			indicates how many bits are desdicated to the subnet mask
 			
