@@ -1,0 +1,167 @@
+DC-1.1-1.3
+
+Chapter 1 - Network Technologies
+
+
+1.1 - OSI and IP Models
+
+
+OSI (Open Systems Interconnection Reference Model)
+
+Layer 7 - Application
+Layer 6 - Presentation
+Layer 5 - Session
+Layer 4 - Transport
+Layer 3 - Network
+Layer 2 - Data Link
+Layer 1 - Physical
+
+(All people seem to need data processing pneumonic)
+
+Layer 1 - Physical Layer
+Signals, cables, connectors. This layer does not include protocols. Includes network cards. 
+
+Layer 2 - Data Link
+The foundation of network communication. Uses Data Link Control (DLC) protocols using MAC (Media Access Control) address on Ethernet.
+
+Also is the switching layer. Has a table full of MAC addresses. When a packet arrives, looks up MAC of IP address.
+
+Layer 3 - Network
+The routing layer. Uses Internet Protocol (IP). Fragments frames to traverse different networks. 
+
+IP Fragmentation - 
+
+DLC HEADER
+IP HEADER
+TCP HEADER (20 bytes)
+TCP Data (24 bytes)
+
+becomes three packets. Each have DLC header, IP header, and attached fragments.
+ 
+Fragments are always in multiples of 8 because of the number of fragmentation offset bits in the IP header 
+
+Layer 4 - Transport
+“Post-office layer.” Includes TCP (Transmission Control Protocol) and UDP (User Datagram Protocol). 
+
+Layer 5 - Session
+Communication management between devices (start, stop, restart). Half-duplex, full-duplex communication..
+
+Includes control protocols and tunneling protocols. Tears down.
+
+Layer 6 - Presentation
+Character encoding, encryption/decryption. Often combined with the Application Layer.
+
+Layer 7 - Application
+The layer we see. HTTP, FTP, DNS, POP3. 
+
+1.1 TCP/IP Protocol Suite (IP Suite, or IP model)
+
+Similar to OSI model
+
+Application
+Transport
+Internet 
+Link
+
+1.2 OSI Model In Real Life 
+
+
+Layer 7 - Application - Your eyes (browser, mail.google.com)
+Layer 6 - Presentation - Application Encryption (SSL/TLS)
+Layer 5 - Session - Control protocols, tunneling protocols (link the presentation to the transport)
+Layer 4 - Transport - TCP segment, UDP datagram (TCP encapsulation)
+Layer 3 - Network - IP address, router, packet (IP encapsulation)
+Layer 2 - Data Link - Frame, MAC address, Extended Unique Identifier (EUI-48, EUI-64), Switch (ethernet)
+Layer 1 - Physical - Cable, NICs, hubs (repeaters, electrical signals)
+
+EUI - 48 and 68 bit formats of physical address. 
+
+Layers 5 - 7 are often bundled in encryption.
+1.3 Binary Math
+
+A bit - will be a 0 or a 1. 
+
+A byte - eight bits. Also called an “octet.” Different OS can have different byte sizes. 
+
+Conversion Chart - 
+
+128	64	32	16	8	4	2	1
+0	0	0	0	0	0	0	0
+
+0-255 possible numbers in 8-bit bytes. 
+
+Move from left to right when adding up to numbers. Less than or equal to (rule). Better 
+
+2 bit
+
+0 1 2 3 adding to 11 
+
+2 ^ bit length = number of possible values
+
+
+IP Classes 
+
+Every device needs a unique IP address
+
+Ex: 192.168.2.11
+
+Subnet is used by the workstation to determine where to hop to other subnets. Masks IP beyond it.
+
+Ex: 255.255.255.0
+
+Default Gateway - 
+The router that allows communication from beyond subnet. Default gateway must be IP address on local subnet.
+
+Ex: 192.168.2.1
+
+IP address isn’t really a single address. A combo of network ID and a host ID. Subnet mask determines what part of the IP address is the network and which part is the host.
+
+Subnet architecture hasnt been used since 1993, but still in casual conversation
+
+Class A - 255.0.0.0 0xxx leading bits
+1-126 address, size of network number bit field is 8, 24 remaining bits, 128 networks, 16,777,214 hosts.
+
+Class B - 255.255.0.0 10xx leading bits
+128-191 address, size of network number bit field 16, size of remaining 16, 16384 number of networks, 65534 hosts, 255.255.0.0
+
+Class C - 255.255.255.0 110x leading bits
+192-223 address, size of network number bit field 24, size of remaining, 8, 27097152 networks, 254 hosts, 255.
+
+Class D (multicast)- 1110 leading bits
+224-239 
+
+Class E (reserved) - 1111 leading bits
+
+RFC 1918 changes public vs private addresses
+
+10.0.0.0 - 10.255.255.255 - 16777216 number of adresses, single class A, 10.0.0.0/8 (255.0.0.0) largest CIDR block, host id size 24
+
+172.16.0.0-172.31.255.255 - 1048576 number of addresses, 16 contiguous class B, 172.16.0.0/12(255.240.0.0), host id size 20 bits
+
+192.168.0.0 - 192.168.255.255 - 65536 number of adresses, 256 contiguous class C, 192.168.0.0/16 (255.255.0.0), 16 bits 
+
+Classless Interdomain Routing (CIDR)
+
+Created around 1993
+Removed restrictions created by classful subnet masks
+“Cider” block notation
+192.168.1.1/24 - / means the number of bits used for the subnet. This is the cider block notation
+
+This means subnet mask of 255.255.255.0. 
+
+192.168.1.0 - 192.168.1.255 (254 hosts per subnet)
+
+10.1.0.1/16 
+Has a subnet mask of 255.255.0.0
+
+10.1.0.0 - 10.1.255.255 (65534 hosts)
+
+10.1.0.1/26 
+Has a subnet mask of 255.255.255.192
+
+10.1.0.0 through 10.1.0.63 (62 addresses per subnet)
+
+
+
+
+
