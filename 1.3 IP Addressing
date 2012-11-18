@@ -1,0 +1,52 @@
+1.3 IP Addressing
+
+Binary Math
+	Bit - represents a 0 or 1
+	Byte - a group of 8 bits
+		often called an "octet" to avoid ambiguity
+	Conversion chart
+		128	64	32	16	8		4		2		1
+		?		?		?		?		?		?		?		?
+		-----------------------------
+			+		+		+		+		+		+		+		= number
+IP Classes, Subnetting
+	IP Address, e.g., 192.168.1.165
+		everyone needs a unique IP address
+	Subnet mask, e.g., 255.255.255.0
+		used by the local workstation to determine which subnet it's on
+	Default gateway
+		allows you to communicate outside of your local subnet
+		the default gateway must be an IP address on the local subnet
+
+	The IP address isn't really a single address
+	An IP address is a combination of a network ID and a host ID
+		the subnet mask determines what part of the IP address is the network and which part is the host
+
+	Classful subnetting
+		very specific subnetting architecture
+		not used since 1993
+
+		Class A
+			1-126
+		Class B
+			128-191
+		Class C
+			192-223
+			total of 2,097,152 networks, each with 254 hosts
+		Class D (multicast)
+			224-239
+		Class E (reserved)
+			240-254
+
+		RFC 1918
+			10.0.0.0 - 10.255.255.255
+			172.16.0.0 - 172.31.255.255
+			192.168.0.0 - 1912.168.255.255
+
+		CIDR (Classless Inter-Domain Routing)
+			Created around 1993
+			Removed restrictions created by classful subnet masks
+			"Cider" block notation
+				e.g. 192.168.1.1/24
+				indicates how many bits are desdicated to the subnet mask
+			
